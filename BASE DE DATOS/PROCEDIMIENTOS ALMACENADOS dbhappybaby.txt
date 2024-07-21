@@ -1,0 +1,193 @@
+//PROCEDIMIENTOS ALMACENADOS
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscarDetallePedido`(IN detallePedidoID INT)
+BEGIN
+    SELECT 
+        DetallePedido.detallePedido_ID, 
+        Usuario.usuario_id, 
+        Usuario.nombreUsuario, 
+        Usuario.direccion, 
+        Pedido.fecha, 
+        Pedido.metodoPago_ID, 
+        MetodoPago.nombreMetodo, 
+        Producto.nombreProducto, 
+        DetallePedido.cantidad, 
+        DetallePedido.precioU, 
+        DetallePedido.subtotal
+    FROM 
+        Pedido
+    INNER JOIN 
+        DetallePedido ON Pedido.pedido_ID = DetallePedido.pedido_ID
+    INNER JOIN 
+        Producto ON DetallePedido.producto_ID = Producto.producto_ID
+    INNER JOIN 
+        Usuario ON Pedido.usuario_ID = Usuario.usuario_ID
+    INNER JOIN 
+        MetodoPago ON Pedido.metodoPago_ID = MetodoPago.metodoPago_ID
+    WHERE
+        DetallePedido.detallePedido_ID = detallePedidoID;
+END
+
+
+
+
+
+
+
+
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarProducto`(
+    IN p_producto_ID INT
+)
+BEGIN
+    DELETE FROM Producto WHERE producto_ID = p_producto_ID;
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarUsuario`(
+    IN p_usuarioID INT
+)
+BEGIN
+    DELETE FROM usuario WHERE usuario_ID = p_usuarioID;
+END
+
+
+
+
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `IngresarCarritoCompras`(
+    IN p_email VARCHAR(255),
+    IN p_password VARCHAR(255)
+)
+BEGIN
+    DECLARE user_id INT;
+    DECLARE user_name VARCHAR(255);
+
+    -- Verificar si las credenciales son válidas
+    SELECT usuario_ID, nombreUsuario INTO user_id, user_name
+    FROM usuario
+    WHERE correo = p_email AND password = p_password;
+
+    -- Devolver el ID del usuario y el nombre si las credenciales son válidas
+    IF user_id IS NOT NULL THEN
+        SELECT user_id AS 'user_id', user_name AS 'user_name', 'Ingreso exitoso al carrito de compras' AS 'mensaje';
+    ELSE
+        SELECT NULL AS 'user_id', NULL AS 'user_name', 'Credenciales incorrectas' AS 'mensaje';
+    END IF;
+END
+
+
+
+
+
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarProducto`(
+    IN p_categoria_ID INT,
+    IN p_nombreProducto VARCHAR(50),
+    IN p_precioU DOUBLE,
+    IN p_stock INT
+)
+BEGIN
+    INSERT INTO Producto (categoria_ID, nombreProducto, precioU, stock)
+    VALUES (p_categoria_ID, p_nombreProducto, p_precioU, p_stock);
+END
+
+
+
+
+
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarUsuario`(
+    IN p_nombreUsuario VARCHAR(50),
+    IN p_celular INT UNSIGNED,
+    IN p_correo VARCHAR(100),
+    IN p_provincia VARCHAR(50),
+    IN p_distrito VARCHAR(50),
+    IN p_direccion VARCHAR(100),
+    IN p_tipoUsuario_ID INT
+)
+BEGIN
+    INSERT INTO Usuario (nombreUsuario, celular, correo, provincia, distrito, direccion, tipoUsuario_ID)
+    VALUES (p_nombreUsuario, p_celular, p_correo, p_provincia, p_distrito, p_direccion, p_tipoUsuario_ID);
+END
+
+
+
+
+
+
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertContacto`(
+    IN p_nombre VARCHAR(100),
+    IN p_apellido VARCHAR(100),
+    IN p_email VARCHAR(100),
+    IN p_telefono VARCHAR(15),
+    IN p_mensaje VARCHAR(300)
+     )
+BEGIN
+    INSERT INTO Contacto (nombre, apellido, email, telefono, mensaje)
+    VALUES (p_nombre, p_apellido, p_email, p_telefono, p_mensaje);
+END
+
+
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertContacto`(
+    IN p_nombre VARCHAR(100),
+    IN p_apellido VARCHAR(100),
+    IN p_email VARCHAR(100),
+    IN p_telefono VARCHAR(15),
+    IN p_mensaje VARCHAR(300)
+     )
+BEGIN
+    INSERT INTO Contacto (nombre, apellido, email, telefono, mensaje)
+    VALUES (p_nombre, p_apellido, p_email, p_telefono, p_mensaje);
+END
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ModificarUsuario`(
+    IN p_usuario_ID INT,
+    IN p_nombreUsuario VARCHAR(50),
+    IN p_celular VARCHAR(20),
+    IN p_correo VARCHAR(100),
+    IN p_provincia VARCHAR(50),
+    IN p_distrito VARCHAR(50),
+    IN p_direccion VARCHAR(100),
+    IN p_tipoUsuario_ID INT
+)
+BEGIN
+    UPDATE usuario
+    SET nombreUsuario = p_nombreUsuario,
+        celular = p_celular,
+        correo = p_correo,
+        provincia = p_provincia,
+        distrito = p_distrito,
+        direccion = p_direccion,
+        tipoUsuario_ID = p_tipoUsuario_ID
+    WHERE usuario_ID = p_usuario_ID;
+END
+

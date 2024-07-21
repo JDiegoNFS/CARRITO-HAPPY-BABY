@@ -1,0 +1,365 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(to right, #ffccbc, #ff8a80);
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    color: #fff;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.navbar a:hover {
+    background: #ff8a80;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* Header Content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.header-txt h2 {
+    font-size: 3em;
+    color: #fff;
+}
+
+.header-txt p {
+    font-size: 1.2em;
+    color: #fff;
+    margin: 20px 0;
+}
+
+.header-txt .btn-1 {
+    background: #fff;
+    color: #ff8a80;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.header-txt .btn-1:hover {
+    background: #ff8a80;
+    color: #fff;
+}
+
+.header-img img {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Info Section */
+.info {
+    padding: 50px 0;
+}
+
+.info-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-img img {
+    width: 100%;
+    max-width: 400px;
+}
+
+.info-txt h2 {
+    font-size: 2.5em;
+    color: #ff8a80;
+}
+
+.info-txt p {
+    font-size: 1.1em;
+    margin: 20px 0;
+}
+
+.info-txt .btn-1 {
+    background: #ff8a80;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.info-txt .btn-1:hover {
+    background: #ffccbc;
+    color: #ff8a80;
+}
+
+/* Products Section */
+.products {
+    padding: 50px 0;
+}
+
+.products h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #ff8a80;
+    margin-bottom: 40px;
+}
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    width: 300px;
+}
+
+.box:hover {
+    transform: translateY(-10px);
+}
+
+.box img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.box img:hover {
+    transform: scale(1.05);
+}
+
+.product-txt {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-txt h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-txt p {
+    font-size: 1.2em;
+    color: #ff8a80;
+    margin-bottom: 20px;
+}
+
+.product-txt form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.product-txt label {
+    font-size: 1em;
+    color: #333;
+}
+
+.product-txt input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.product-txt .btn-3 {
+    background: #ff8a80;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.product-txt .btn-3:hover {
+    background: #ffccbc;
+}
+
+.btn-2 {
+    display: block;
+    text-align: center;
+    background: #ff8a80;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+    margin: 40px auto;
+    width: 200px;
+}
+
+.btn-2:hover {
+    background: #ffccbc;
+    color: #ff8a80;
+}
+
+/* App Section */
+.app {
+    padding: 50px 0;
+    background: #ffccbc;
+}
+
+.app-txt {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.app-txt h2 {
+    font-size: 2.5em;
+    color: #fff;
+}
+
+.app-txt p {
+    font-size: 1.2em;
+    color: #fff;
+    margin: 20px 0;
+}
+
+.app-img img {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 30px auto 0;
+}
+
+/* Footer Styles */
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer .link {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer h3 {
+    margin-bottom: 10px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+    color: #ff8a80;
+}
+
+.footer .descarga img {
+    width: 120px;
+    margin-right: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+    }
+
+    .info-content {
+        flex-direction: column;
+    }
+
+    .box-container {
+        flex-direction: column;
+    }
+}
+
+ <style>
+    .whatsapp-button {
+        position: fixed;
+        bottom: 20px; /* Ajusta la distancia desde la parte inferior */
+        right: 20px; /* Ajusta la distancia desde el borde derecho */
+        background-color: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Agrega sombra para un aspecto más profesional */
+        z-index: 1000;
+    }
+    .whatsapp-button:hover {
+        background-color: #1ebe5a;
+    }
+    .whatsapp-icon {
+        width: 30px;
+        height: 30px;
+        margin-top: 15px;
+    }
+</style>
+
+
+
